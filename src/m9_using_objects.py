@@ -5,8 +5,8 @@ This module lets you practice  ** using objects **, including:
   -- accessing their DATA via INSTANCE VARIABLES
 
 Authors: David Mutchler, Vibha Alangar, Matt Boutell, Dave Fisher, Mark Hays,
-         Aaron Wilkin, their colleagues, and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         Aaron Wilkin, their colleagues, and OMAR A. FAYOUMI.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -14,6 +14,9 @@ import rosegraphics as rg
 def main():
     """ Calls the other functions to demonstrate and/or test them. """
     # Test your functions by putting calls to them here:
+    two_circles()
+    circle_and_rectangle()
+    lines()
 
 
 def two_circles():
@@ -27,12 +30,20 @@ def two_circles():
     -- Waits for the user to press the mouse, then closes the window.
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement this function, per its green doc-string above.
+    # DONE: 2. Implement this function, per its green doc-string above.
     #    -- ANY two rg.Circle objects that meet the criteria are fine.
     #    -- File  COLORS.pdf  lists all legal color-names.
     # Put a statement in   main   to test this function
     #    (by calling this function).
     # -------------------------------------------------------------------------
+    window = rg.RoseWindow(400,400)
+    circle1 = rg.Circle(rg.Point(100,200),40)
+    circle1.fill_color = 'cyan'
+    circle2 = rg.Circle(rg.Point(50,100),30)
+    circle1.attach_to(window)
+    circle2.attach_to(window)
+    window.render()
+    window.close_on_mouse_click()
 
 
 def circle_and_rectangle():
@@ -67,7 +78,7 @@ def circle_and_rectangle():
            150.0
     """
     # -------------------------------------------------------------------------
-    # TODO: 3. Implement this function, per its green doc-string above.
+    # DONE: 3. Implement this function, per its green doc-string above.
     #   -- ANY objects that meet the criteria are fine.
     # Put a statement in   main   to test this function
     #    (by calling this function).
@@ -75,6 +86,26 @@ def circle_and_rectangle():
     # IMPORTANT: Use the DOT TRICK to guess the names of the relevant
     #       instance variables for outline thickness, etc.
     # -------------------------------------------------------------------------
+    window = rg.RoseWindow(400, 400)
+    circle1 = rg.Circle(rg.Point(100, 200), 40)
+    circle1.fill_color = 'blue'
+    reg = rg.Rectangle(rg.Point(100,200),rg.Point(50,150))
+    circle1.attach_to(window)
+    reg.attach_to(window)
+    window.render()
+    window.close_on_mouse_click()
+    print(circle1.outline_thickness)
+    print(circle1.fill_color)
+    print(circle1.center)
+    print(circle1.center.x)
+    print(circle1.center.y)
+    print(reg.outline_thickness)
+    print(reg.fill_color)
+    print(reg.get_center())
+    print(reg.get_center().x)
+    print(reg.get_center().y)
+
+
 
 
 def lines():
@@ -99,8 +130,18 @@ def lines():
 
     -- Waits for the user to press the mouse, then closes the window.
     """
-    # TODO: 4. Implement and test this function.
-
+    # DONE: 4. Implement and test this function.
+    window = rg.RoseWindow(400, 400)
+    line = rg.Line(rg.Point(0,0),rg.Point(50,80))
+    lineT = rg.Line(rg.Point(10,100),rg.Point(80,200))
+    lineT.thickness = 10
+    line.attach_to(window)
+    lineT.attach_to(window)
+    window.render()
+    window.close_on_mouse_click()
+    print(lineT.get_midpoint())
+    print(lineT.get_midpoint().x)
+    print(lineT.get_midpoint().y)
 
 # -----------------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
